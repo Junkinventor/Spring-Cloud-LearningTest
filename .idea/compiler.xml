@@ -8,17 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-Boot-Cloud-Test" />
         <module name="Spring-Data-JPA-Test" />
+        <module name="Spring-Security" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Spring-Boot-Cloud-Test" target="1.8" />
       <module name="Spring-Data-JPA-Test" target="1.8" />
+      <module name="Spring-Security" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Spring-Boot-Cloud-Test" options="-parameters" />
       <module name="Spring-Data-JPA-Test" options="-parameters" />
+      <module name="Spring-Security" options="-parameters" />
     </option>
   </component>
 </project>

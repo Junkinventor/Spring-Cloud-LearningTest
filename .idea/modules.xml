@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring-Boot-Cloud-Test.iml" filepath="$PROJECT_DIR$/Spring-Boot-Cloud-Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring-Data-JPA-Test/Spring-Data-JPA-Test.iml" filepath="$PROJECT_DIR$/Spring-Data-JPA-Test/Spring-Data-JPA-Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-Security/Spring-Security.iml" filepath="$PROJECT_DIR$/Spring-Security/Spring-Security.iml" />
     </modules>
   </component>
 </project>

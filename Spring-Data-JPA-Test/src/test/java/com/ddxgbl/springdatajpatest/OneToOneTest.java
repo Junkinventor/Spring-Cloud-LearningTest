@@ -71,24 +71,41 @@ public class OneToOneTest {
         Specification<Userid> spec = new Specification<Userid>() {
             @Override
             public Predicate toPredicate(Root<Userid> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                /**
+                 * 1、使用root为查询参数进行声明
+                 * 2、使用CriteriaBuilder 为已经声明了的参数进行赋值
+                 * 3、返回值为Predicate类型
+                 * 4、注意findOne方法的返回类型仅能存储一组数据
+                 */
+
                 //查询的字段
                 Path<Object> username = root.get("username");
+                Path<Object> password = root.get("password");
 
                 //使用模糊查询
                 Predicate like = criteriaBuilder.like(username.as(String.class), "%尔%");
+                Predicate likepass = criteriaBuilder.like(password.as(String.class), "%79%");
 
                 //使用精确查询
                 Predicate equalTest = criteriaBuilder.equal(username,"科尔");
+                Predicate equal = criteriaBuilder.equal(password, "7979");
 
-                return equalTest;
+
+                //精确的多参数查询 and与  or或
+                Predicate and = criteriaBuilder.and(equal,equalTest);
+
+
+                Predicate andLink = criteriaBuilder.and(like,likepass);
+
+                return andLink;
             }
         };
         List<Userid> all = jpaDao.findAll(spec);
-        //System.out.println(all);
+        System.out.println(all);
 
         //值得注意的是Optional 只能存储一组数据  它只是一个简单的容器
-        Optional<Userid> one = jpaDao.findOne(spec);
-        System.out.println(one);
+        //Optional<Userid> one = jpaDao.findOne(spec);
+        //System.out.println(one);
     }
 
 
