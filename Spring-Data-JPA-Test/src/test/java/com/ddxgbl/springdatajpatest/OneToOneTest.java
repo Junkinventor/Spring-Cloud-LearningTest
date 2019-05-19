@@ -4,12 +4,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.criteria.*;
 import java.util.List;
 import java.util.Optional;
+
 
 /**
  * @ProjectName: Spring-Boot-Cloud-Test
@@ -20,7 +27,8 @@ import java.util.Optional;
  * @Date: 2019/5/15 9:10
  * @Version: 1.0
  */
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 public class OneToOneTest {
 
@@ -57,5 +65,31 @@ public class OneToOneTest {
         System.out.println("byOneAndOneU  "+byOneAndOneU);
 
     }
+
+    @Test
+    public void SpecificationTest(){
+        Specification<Userid> spec = new Specification<Userid>() {
+            @Override
+            public Predicate toPredicate(Root<Userid> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                //查询的字段
+                Path<Object> username = root.get("username");
+
+                //使用模糊查询
+                Predicate like = criteriaBuilder.like(username.as(String.class), "%尔%");
+
+                //使用精确查询
+                Predicate equalTest = criteriaBuilder.equal(username,"科尔");
+
+                return equalTest;
+            }
+        };
+        List<Userid> all = jpaDao.findAll(spec);
+        //System.out.println(all);
+
+        //值得注意的是Optional 只能存储一组数据  它只是一个简单的容器
+        Optional<Userid> one = jpaDao.findOne(spec);
+        System.out.println(one);
+    }
+
 
 }

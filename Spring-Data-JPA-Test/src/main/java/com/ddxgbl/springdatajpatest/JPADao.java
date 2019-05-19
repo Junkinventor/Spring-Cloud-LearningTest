@@ -1,10 +1,11 @@
 package com.ddxgbl.springdatajpatest;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 @Transactional()  //开启事务
 
-public interface JPADao extends JpaRepository<Userid,Integer> {
+public interface JPADao extends JpaRepository<Userid,Integer>,JpaSpecificationExecutor<Userid> {
 
     //使用修改  新增是必须添加的注解
     @Modifying
@@ -43,4 +44,8 @@ public interface JPADao extends JpaRepository<Userid,Integer> {
      */
     @Query(value = "SELECT * FROM USERid u inner JOIN User uid ON u.id=uid.id WHERE uid.id= :id  ",nativeQuery = true)
     Userid findByOneAndOneU(@Param("id") Integer id);
+
+
+    List<Userid> findByUsername(Specification username);
+
 }
