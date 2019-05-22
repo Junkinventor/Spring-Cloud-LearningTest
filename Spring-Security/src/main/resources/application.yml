@@ -1,0 +1,18 @@
+server:
+  port: 8889
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/webwzb?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  application:
+    name: oauth2-server
+  security:
+    user:
+      name: user
+      password: root
