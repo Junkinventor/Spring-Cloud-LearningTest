@@ -6,6 +6,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-Data-JPA-Test/pom.xml" />
         <option value="$PROJECT_DIR$/Spring-Security/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring-ConfigTest/pom.xml" />
       </list>
     </option>
   </component>

@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Spring-Boot-Cloud-Test.iml" filepath="$PROJECT_DIR$/Spring-Boot-Cloud-Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-ConfigTest/Spring-ConfigTest.iml" filepath="$PROJECT_DIR$/Spring-ConfigTest/Spring-ConfigTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring-Data-JPA-Test/Spring-Data-JPA-Test.iml" filepath="$PROJECT_DIR$/Spring-Data-JPA-Test/Spring-Data-JPA-Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/Spring-Security/Spring-Security.iml" filepath="$PROJECT_DIR$/Spring-Security/Spring-Security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
     </modules>
   </component>
 </project>
