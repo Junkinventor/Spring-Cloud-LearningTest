@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: http://gitlab.bill.com/billjiang/spring-cloud-config.git
+          search-paths: config
+          username: Junkinventor
+          password: wzbshuai199861
+        health:
+          repositories:
+            a-hello:
+              label: master
+              name: hello
+              profiles: dev
